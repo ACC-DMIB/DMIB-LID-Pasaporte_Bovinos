@@ -1,0 +1,48 @@
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.pdb
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.xml
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Form1.resources
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Resources.resources
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.GenerateResource.Cache
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.exe
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
+c:\users\tuso\documents\visual studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.exe
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.pdb
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.xml
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Interop.BarTender.dll
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.ResolveComReference.cache
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Form1.resources
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Resources.resources
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.GenerateResource.Cache
+D:\Mis Documentos\Visual Studio 2013\Projects\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe.config
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe.config
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.ResolveComReference.cache
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.exe
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbprojResolveAssemblyReference.cache
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Form1.resources
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Resources.resources
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.GenerateResource.Cache
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Interop.BarTender.dll
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.pdb
+C:\Users\acorr\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe.config
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Interop.BarTender.dll
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.ResolveComReference.cache
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.exe
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.exe
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.pdb
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\bin\Debug\Cartillas_Bovino.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Form1.resources
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Resources.resources
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.GenerateResource.Cache
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.AssemblyReference.cache
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\Cartillas_Bovino\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.CoreCompileInputs.cache
