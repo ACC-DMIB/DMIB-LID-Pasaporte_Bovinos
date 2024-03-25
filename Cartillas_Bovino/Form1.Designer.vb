@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.btn_imprimir = New System.Windows.Forms.Button()
         Me.txt_inicio = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -30,12 +31,23 @@ Partial Class Form1
         Me.txt_final = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgv_pedidos = New System.Windows.Forms.DataGridView()
+        Me.PedidoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GanaderoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DesdeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HastaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UspGetPedidoBovinoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pedidos_OSDataSet = New Cartillas_Bovino.Pedidos_OSDataSet()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.txt_pedido_PS = New System.Windows.Forms.TextBox()
         Me.gb_datos_pedido = New System.Windows.Forms.GroupBox()
+        Me.lbl_cartillas = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.chk_Todo = New System.Windows.Forms.CheckBox()
+        Me.dgv_crotales = New System.Windows.Forms.DataGridView()
+        Me.Imprimir = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.txt_pedido = New System.Windows.Forms.TextBox()
         Me.txt_cliente = New System.Windows.Forms.TextBox()
         Me.txt_ganadero = New System.Windows.Forms.TextBox()
@@ -43,39 +55,34 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.UspGetPedidoBovinoTableAdapter = New Cartillas_Bovino.Pedidos_OSDataSetTableAdapters.uspGetPedidoBovinoTableAdapter()
-        Me.dgv_crotales = New System.Windows.Forms.DataGridView()
-        Me.PedidoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GanaderoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DesdeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HastaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Imprimir = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.chk_Todo = New System.Windows.Forms.CheckBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.lbl_cartillas = New System.Windows.Forms.Label()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lbl_impresora = New System.Windows.Forms.ToolStripDropDownButton()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UspGetPedidoBovinoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pedidos_OSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_datos_pedido.SuspendLayout()
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_imprimir
         '
-        Me.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(191, Byte), Integer), CType(CType(26, Byte), Integer))
+        Me.btn_imprimir.BackColor = System.Drawing.Color.White
         Me.btn_imprimir.Enabled = False
         Me.btn_imprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
         Me.btn_imprimir.FlatAppearance.BorderSize = 2
         Me.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_imprimir.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_imprimir.ForeColor = System.Drawing.Color.White
+        Me.btn_imprimir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
+        Me.btn_imprimir.Image = CType(resources.GetObject("btn_imprimir.Image"), System.Drawing.Image)
+        Me.btn_imprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_imprimir.Location = New System.Drawing.Point(17, 277)
         Me.btn_imprimir.Name = "btn_imprimir"
         Me.btn_imprimir.Size = New System.Drawing.Size(162, 48)
         Me.btn_imprimir.TabIndex = 3
-        Me.btn_imprimir.Text = "IMPRIMIR"
+        Me.btn_imprimir.Text = "    IMPRIMIR"
         Me.btn_imprimir.UseVisualStyleBackColor = False
         '
         'txt_inicio
@@ -142,6 +149,53 @@ Partial Class Form1
         Me.dgv_pedidos.Size = New System.Drawing.Size(847, 118)
         Me.dgv_pedidos.TabIndex = 9
         '
+        'PedidoDataGridViewTextBoxColumn
+        '
+        Me.PedidoDataGridViewTextBoxColumn.DataPropertyName = "Pedido"
+        Me.PedidoDataGridViewTextBoxColumn.HeaderText = "Pedido"
+        Me.PedidoDataGridViewTextBoxColumn.Name = "PedidoDataGridViewTextBoxColumn"
+        Me.PedidoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ClienteDataGridViewTextBoxColumn
+        '
+        Me.ClienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente"
+        Me.ClienteDataGridViewTextBoxColumn.HeaderText = "Cliente"
+        Me.ClienteDataGridViewTextBoxColumn.Name = "ClienteDataGridViewTextBoxColumn"
+        Me.ClienteDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ClienteDataGridViewTextBoxColumn.Width = 200
+        '
+        'GanaderoDataGridViewTextBoxColumn
+        '
+        Me.GanaderoDataGridViewTextBoxColumn.DataPropertyName = "Ganadero"
+        Me.GanaderoDataGridViewTextBoxColumn.HeaderText = "Ganadero"
+        Me.GanaderoDataGridViewTextBoxColumn.Name = "GanaderoDataGridViewTextBoxColumn"
+        Me.GanaderoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.GanaderoDataGridViewTextBoxColumn.Width = 200
+        '
+        'DesdeDataGridViewTextBoxColumn
+        '
+        Me.DesdeDataGridViewTextBoxColumn.DataPropertyName = "Desde"
+        Me.DesdeDataGridViewTextBoxColumn.HeaderText = "Desde"
+        Me.DesdeDataGridViewTextBoxColumn.Name = "DesdeDataGridViewTextBoxColumn"
+        Me.DesdeDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DesdeDataGridViewTextBoxColumn.Width = 115
+        '
+        'HastaDataGridViewTextBoxColumn
+        '
+        Me.HastaDataGridViewTextBoxColumn.DataPropertyName = "Hasta"
+        Me.HastaDataGridViewTextBoxColumn.HeaderText = "Hasta"
+        Me.HastaDataGridViewTextBoxColumn.Name = "HastaDataGridViewTextBoxColumn"
+        Me.HastaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.HastaDataGridViewTextBoxColumn.Width = 115
+        '
+        'CantidadDataGridViewTextBoxColumn
+        '
+        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CantidadDataGridViewTextBoxColumn.Width = 70
+        '
         'UspGetPedidoBovinoBindingSource
         '
         Me.UspGetPedidoBovinoBindingSource.DataMember = "uspGetPedidoBovino"
@@ -169,11 +223,13 @@ Partial Class Form1
         Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_buscar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
-        Me.btn_buscar.Location = New System.Drawing.Point(412, 18)
+        Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
+        Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_buscar.Location = New System.Drawing.Point(346, 18)
         Me.btn_buscar.Name = "btn_buscar"
-        Me.btn_buscar.Size = New System.Drawing.Size(121, 48)
+        Me.btn_buscar.Size = New System.Drawing.Size(187, 48)
         Me.btn_buscar.TabIndex = 2
-        Me.btn_buscar.Text = "BUSCAR"
+        Me.btn_buscar.Text = "     BUSCAR PEDIDO"
         Me.btn_buscar.UseVisualStyleBackColor = False
         '
         'txt_pedido_PS
@@ -207,6 +263,50 @@ Partial Class Form1
         Me.gb_datos_pedido.TabIndex = 9
         Me.gb_datos_pedido.TabStop = False
         Me.gb_datos_pedido.Text = "DATOS PEDIDO"
+        '
+        'lbl_cartillas
+        '
+        Me.lbl_cartillas.AutoSize = True
+        Me.lbl_cartillas.Location = New System.Drawing.Point(816, 306)
+        Me.lbl_cartillas.Name = "lbl_cartillas"
+        Me.lbl_cartillas.Size = New System.Drawing.Size(15, 16)
+        Me.lbl_cartillas.TabIndex = 22
+        Me.lbl_cartillas.Text = "0"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(694, 306)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(116, 16)
+        Me.Label7.TabIndex = 21
+        Me.Label7.Text = "Cartillas a imprimir"
+        '
+        'chk_Todo
+        '
+        Me.chk_Todo.AutoSize = True
+        Me.chk_Todo.Location = New System.Drawing.Point(478, 305)
+        Me.chk_Todo.Name = "chk_Todo"
+        Me.chk_Todo.Size = New System.Drawing.Size(158, 20)
+        Me.chk_Todo.TabIndex = 20
+        Me.chk_Todo.Text = "Imprimir todo el pedido"
+        Me.chk_Todo.UseVisualStyleBackColor = True
+        '
+        'dgv_crotales
+        '
+        Me.dgv_crotales.AllowUserToAddRows = False
+        Me.dgv_crotales.AllowUserToDeleteRows = False
+        Me.dgv_crotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_crotales.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Imprimir})
+        Me.dgv_crotales.Location = New System.Drawing.Point(478, 21)
+        Me.dgv_crotales.Name = "dgv_crotales"
+        Me.dgv_crotales.Size = New System.Drawing.Size(376, 278)
+        Me.dgv_crotales.TabIndex = 19
+        '
+        'Imprimir
+        '
+        Me.Imprimir.HeaderText = "Imprimir"
+        Me.Imprimir.Name = "Imprimir"
         '
         'txt_pedido
         '
@@ -266,106 +366,41 @@ Partial Class Form1
         '
         Me.UspGetPedidoBovinoTableAdapter.ClearBeforeFill = True
         '
-        'dgv_crotales
+        'StatusStrip1
         '
-        Me.dgv_crotales.AllowUserToAddRows = False
-        Me.dgv_crotales.AllowUserToDeleteRows = False
-        Me.dgv_crotales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_crotales.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Imprimir})
-        Me.dgv_crotales.Location = New System.Drawing.Point(478, 21)
-        Me.dgv_crotales.Name = "dgv_crotales"
-        Me.dgv_crotales.Size = New System.Drawing.Size(376, 278)
-        Me.dgv_crotales.TabIndex = 19
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lbl_impresora})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 561)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(884, 22)
+        Me.StatusStrip1.TabIndex = 10
+        Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'PedidoDataGridViewTextBoxColumn
+        'ToolStripStatusLabel1
         '
-        Me.PedidoDataGridViewTextBoxColumn.DataPropertyName = "Pedido"
-        Me.PedidoDataGridViewTextBoxColumn.HeaderText = "Pedido"
-        Me.PedidoDataGridViewTextBoxColumn.Name = "PedidoDataGridViewTextBoxColumn"
-        Me.PedidoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(60, 17)
+        Me.ToolStripStatusLabel1.Text = "Impresora"
         '
-        'ClienteDataGridViewTextBoxColumn
+        'lbl_impresora
         '
-        Me.ClienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente"
-        Me.ClienteDataGridViewTextBoxColumn.HeaderText = "Cliente"
-        Me.ClienteDataGridViewTextBoxColumn.Name = "ClienteDataGridViewTextBoxColumn"
-        Me.ClienteDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ClienteDataGridViewTextBoxColumn.Width = 200
-        '
-        'GanaderoDataGridViewTextBoxColumn
-        '
-        Me.GanaderoDataGridViewTextBoxColumn.DataPropertyName = "Ganadero"
-        Me.GanaderoDataGridViewTextBoxColumn.HeaderText = "Ganadero"
-        Me.GanaderoDataGridViewTextBoxColumn.Name = "GanaderoDataGridViewTextBoxColumn"
-        Me.GanaderoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.GanaderoDataGridViewTextBoxColumn.Width = 200
-        '
-        'DesdeDataGridViewTextBoxColumn
-        '
-        Me.DesdeDataGridViewTextBoxColumn.DataPropertyName = "Desde"
-        Me.DesdeDataGridViewTextBoxColumn.HeaderText = "Desde"
-        Me.DesdeDataGridViewTextBoxColumn.Name = "DesdeDataGridViewTextBoxColumn"
-        Me.DesdeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DesdeDataGridViewTextBoxColumn.Width = 115
-        '
-        'HastaDataGridViewTextBoxColumn
-        '
-        Me.HastaDataGridViewTextBoxColumn.DataPropertyName = "Hasta"
-        Me.HastaDataGridViewTextBoxColumn.HeaderText = "Hasta"
-        Me.HastaDataGridViewTextBoxColumn.Name = "HastaDataGridViewTextBoxColumn"
-        Me.HastaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.HastaDataGridViewTextBoxColumn.Width = 115
-        '
-        'CantidadDataGridViewTextBoxColumn
-        '
-        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
-        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CantidadDataGridViewTextBoxColumn.Width = 70
-        '
-        'Imprimir
-        '
-        Me.Imprimir.HeaderText = "Imprimir"
-        Me.Imprimir.Name = "Imprimir"
-        '
-        'chk_Todo
-        '
-        Me.chk_Todo.AutoSize = True
-        Me.chk_Todo.Location = New System.Drawing.Point(478, 305)
-        Me.chk_Todo.Name = "chk_Todo"
-        Me.chk_Todo.Size = New System.Drawing.Size(158, 20)
-        Me.chk_Todo.TabIndex = 20
-        Me.chk_Todo.Text = "Imprimir todo el pedido"
-        Me.chk_Todo.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(694, 306)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(116, 16)
-        Me.Label7.TabIndex = 21
-        Me.Label7.Text = "Cartillas a imprimir"
-        '
-        'lbl_cartillas
-        '
-        Me.lbl_cartillas.AutoSize = True
-        Me.lbl_cartillas.Location = New System.Drawing.Point(816, 306)
-        Me.lbl_cartillas.Name = "lbl_cartillas"
-        Me.lbl_cartillas.Size = New System.Drawing.Size(12, 16)
-        Me.lbl_cartillas.TabIndex = 22
-        Me.lbl_cartillas.Text = "-"
+        Me.lbl_impresora.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.lbl_impresora.Image = CType(resources.GetObject("lbl_impresora.Image"), System.Drawing.Image)
+        Me.lbl_impresora.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.lbl_impresora.Name = "lbl_impresora"
+        Me.lbl_impresora.Size = New System.Drawing.Size(25, 20)
+        Me.lbl_impresora.Text = "-"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(884, 561)
+        Me.ClientSize = New System.Drawing.Size(884, 583)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.gb_datos_pedido)
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Form1"
         Me.Text = "CARTILLAS BOVINO"
@@ -377,7 +412,10 @@ Partial Class Form1
         Me.gb_datos_pedido.ResumeLayout(False)
         Me.gb_datos_pedido.PerformLayout()
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btn_imprimir As System.Windows.Forms.Button
@@ -411,4 +449,7 @@ Partial Class Form1
     Friend WithEvents chk_Todo As CheckBox
     Friend WithEvents lbl_cartillas As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents lbl_impresora As ToolStripDropDownButton
 End Class

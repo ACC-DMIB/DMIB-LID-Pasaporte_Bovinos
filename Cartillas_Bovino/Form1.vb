@@ -4,7 +4,12 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Dim ImpDefecto As New System.Drawing.Printing.PrinterSettings
         Crear_dt_crotales()
+        lbl_impresora.Text = INIRead(My.Application.Info.DirectoryPath & "\settings.ini",
+                                    "Impresora",
+                                    "Impresora",
+                                    ImpDefecto.PrinterName)
 
     End Sub
 
@@ -88,7 +93,7 @@
             btApp.Window.Width = 650
 
             'Setting the BarTender format to open 
-            btFormat = btApp.Formats.Open("c:\etiquetas\bovinoOficial.btw", True, "")
+            btFormat = btApp.Formats.Open(My.Application.Info.DirectoryPath & "\bovinoOficial.btw", True, "")
 
             btFormat.IdenticalCopiesOfLabel = 1
             btFormat.NumberSerializedLabels = 1
@@ -131,7 +136,7 @@
             btApp.Window.Width = 650
 
             'Setting the BarTender format to open 
-            btFormat = btApp.Formats.Open("c:\etiquetas\bovinoOficial.btw", True, "")
+            btFormat = btApp.Formats.Open(My.Application.Info.DirectoryPath & "\bovinoOficial.btw", True, "")
 
             btFormat.IdenticalCopiesOfLabel = 1
             btFormat.NumberSerializedLabels = 1
@@ -162,10 +167,16 @@
 
         If dgv_pedidos.Rows.Count > 0 Then
             gb_datos_pedido.Enabled = True
+            If dgv_pedidos.Rows.Count = 1 Then
+                Cargar_Datos_Pedido(0)
+            End If
         Else
             MsgBox("No existe ningún pedido de bovino con ese pedido PS")
             txt_inicio.Text = ""
             txt_final.Text = ""
+            txt_cliente.Text = ""
+            txt_ganadero.Text = ""
+            txt_pedido.Text = ""
             gb_datos_pedido.Enabled = False
         End If
 
@@ -173,12 +184,18 @@
 
     Private Sub dgv_pedidos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_pedidos.CellClick
 
+        Cargar_Datos_Pedido(e.RowIndex)
+
+    End Sub
+
+    Private Sub Cargar_Datos_Pedido(ByVal fila As Integer)
+
         btn_imprimir.Enabled = True
-        txt_pedido.Text = dgv_pedidos.Rows(e.RowIndex).Cells(0).Value
-        txt_cliente.Text = dgv_pedidos.Rows(e.RowIndex).Cells(1).Value
-        txt_ganadero.Text = dgv_pedidos.Rows(e.RowIndex).Cells(2).Value
-        txt_inicio.Text = dgv_pedidos.Rows(e.RowIndex).Cells(3).Value
-        txt_final.Text = dgv_pedidos.Rows(e.RowIndex).Cells(4).Value
+        txt_pedido.Text = dgv_pedidos.Rows(fila).Cells(0).Value
+        txt_cliente.Text = dgv_pedidos.Rows(fila).Cells(1).Value
+        txt_ganadero.Text = dgv_pedidos.Rows(fila).Cells(2).Value
+        txt_inicio.Text = dgv_pedidos.Rows(fila).Cells(3).Value
+        txt_final.Text = dgv_pedidos.Rows(fila).Cells(4).Value
         Cargar_Listado_Crotales()
         chk_Todo.Checked = True
 
@@ -192,14 +209,25 @@
         Dim final As Long = txt_final.Text.Substring(4, 10)
         Dim crotal As String = ""
         Dim cod_barras As String = ""
+        Dim digito As String
         For i = inicio To final
-            Dim digito As String = DigitoDeControlParaBovino(i)
-            crotal = "ES0" & digito & i
-            cod_barras = "084" & i & digito
-            Dim fila As DataRow = dt_crotales.NewRow
-            fila.Item("Crotal") = crotal
-            fila.Item("Cod_barras") = cod_barras
-            dt_crotales.Rows.Add(fila)
+            If inicio.ToString.Length = 10 Then
+                digito = DigitoDeControlParaBovino(i)
+                crotal = "ES0" & digito & i
+                cod_barras = "084" & i & digito
+                Dim fila As DataRow = dt_crotales.NewRow
+                fila.Item("Crotal") = crotal
+                fila.Item("Cod_barras") = cod_barras
+                dt_crotales.Rows.Add(fila)
+            Else
+                digito = DigitoDeControlParaBovino("0" & i)
+                crotal = "ES0" & digito & "0" & i
+                cod_barras = "084" & "0" & i & digito
+                Dim fila As DataRow = dt_crotales.NewRow
+                fila.Item("Crotal") = crotal
+                fila.Item("Cod_barras") = cod_barras
+                dt_crotales.Rows.Add(fila)
+            End If
         Next
         dgv_crotales.DataSource = dt_crotales
         dgv_crotales.Columns(0).Width = 70
@@ -228,7 +256,66 @@
             For i = 0 To dgv_crotales.Rows.Count - 1
                 dgv_crotales.Rows(i).Cells(0).Value = True
             Next
+        Else
+            dgv_crotales.Columns(1).ReadOnly = True
+            dgv_crotales.Columns(2).ReadOnly = True
         End If
+
+    End Sub
+
+    Private Function Get_Cantidad_Crotales() As Integer
+
+        Dim cantidad As Integer = 0
+        For i = 0 To dgv_crotales.Rows.Count - 1
+            If dgv_crotales.Rows(i).Cells(0).Value Then
+                cantidad += 1
+            End If
+        Next
+        Return cantidad
+
+    End Function
+
+    Private Sub dgv_crotales_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles dgv_crotales.CurrentCellDirtyStateChanged
+
+        If dgv_crotales.IsCurrentCellDirty Then
+            dgv_crotales.CommitEdit(DataGridViewDataErrorContexts.Commit)
+        End If
+
+    End Sub
+
+    Private Sub dgv_crotales_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_crotales.CellValueChanged
+
+        If e.RowIndex = -1 Then
+            Exit Sub
+        End If
+        lbl_cartillas.Text = Get_Cantidad_Crotales()
+
+    End Sub
+
+    Private Sub lbl_impresora_DropDownOpening(sender As Object, e As EventArgs) Handles lbl_impresora.DropDownOpening
+
+        Dim pkInstalledPrinters As String
+
+        For i As Integer = lbl_impresora.DropDownItems.Count - 1 To 0 Step -1
+            RemoveHandler lbl_impresora.DropDownItems(i).Click, AddressOf ImpresorasMenuItem_Click
+            lbl_impresora.DropDownItems.RemoveAt(i)
+        Next
+
+        lbl_impresora.DropDownItems.Clear()
+
+        'Find all printers installed
+        For Each pkInstalledPrinters In Drawing.Printing.PrinterSettings.InstalledPrinters
+            lbl_impresora.DropDownItems.Add(pkInstalledPrinters)
+            AddHandler lbl_impresora.DropDownItems(lbl_impresora.DropDownItems.Count - 1).Click, AddressOf ImpresorasMenuItem_Click
+        Next pkInstalledPrinters
+
+    End Sub
+
+    Private Sub ImpresorasMenuItem_Click(sender As Object, e As EventArgs)
+
+        Dim obj As ToolStripDropDownItem = sender
+        lbl_impresora.Text = obj.Text
+        INIWrite(My.Application.Info.DirectoryPath & "\Settings.ini", "Impresora", "Impresora", lbl_impresora.Text)
 
     End Sub
 End Class
