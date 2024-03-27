@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.IO
+
+Public Class Form1
 
     Dim dt_crotales As DataTable
 
@@ -74,6 +76,7 @@
                 End If
             Next
         End If
+        Crear_Parser()
 
     End Sub
 
@@ -177,6 +180,8 @@
             txt_cliente.Text = ""
             txt_ganadero.Text = ""
             txt_pedido.Text = ""
+            txt_cantidad.Text = ""
+            lbl_PedidoPS.Text = ""
             gb_datos_pedido.Enabled = False
         End If
 
@@ -196,6 +201,8 @@
         txt_ganadero.Text = dgv_pedidos.Rows(fila).Cells(2).Value
         txt_inicio.Text = dgv_pedidos.Rows(fila).Cells(3).Value
         txt_final.Text = dgv_pedidos.Rows(fila).Cells(4).Value
+        txt_cantidad.Text = dgv_pedidos.Rows(fila).Cells(5).Value
+        lbl_PedidoPS.Text = txt_pedido_PS.Text
         Cargar_Listado_Crotales()
         chk_Todo.Checked = True
 
@@ -257,6 +264,9 @@
                 dgv_crotales.Rows(i).Cells(0).Value = True
             Next
         Else
+            For i = 0 To dgv_crotales.Rows.Count - 1
+                dgv_crotales.Rows(i).Cells(0).Value = False
+            Next
             dgv_crotales.Columns(1).ReadOnly = True
             dgv_crotales.Columns(2).ReadOnly = True
         End If
@@ -316,6 +326,27 @@
         Dim obj As ToolStripDropDownItem = sender
         lbl_impresora.Text = obj.Text
         INIWrite(My.Application.Info.DirectoryPath & "\Settings.ini", "Impresora", "Impresora", lbl_impresora.Text)
+
+    End Sub
+
+    Private Sub Crear_Parser()
+
+        Dim txt_Parser As String = My.Application.Info.DirectoryPath & "\Parser\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text & "_" & txt_ganadero.Text & "_" & txt_cantidad.Text & ".csv"
+        Dim sw_Parser As New StreamWriter(txt_Parser)
+
+        sw_Parser.WriteLine("Var01,Var02,Var03,Var04,Var05,Var06")
+        For i = 0 To dgv_crotales.Rows.Count - 1
+            If dgv_crotales.Rows(i).Cells(0).Value Then
+                sw_Parser.WriteLine("ES," &                                                                 'Var01
+                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(2, 2) & "," &    'Var02
+                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(4, 2) & "," &    'Var03
+                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(6, 4) & "," &    'Var04
+                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(10, 4) & "," &   'Var05
+                                    dgv_crotales.Rows(i).Cells(2).Value)                                    'Var06
+            End If
+        Next
+        sw_Parser.Flush()
+        sw_Parser.Close()
 
     End Sub
 End Class

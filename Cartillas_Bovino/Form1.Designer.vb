@@ -58,6 +58,9 @@ Partial Class Form1
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lbl_impresora = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txt_cantidad = New System.Windows.Forms.TextBox()
+        Me.lbl_PedidoPS = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UspGetPedidoBovinoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -241,6 +244,9 @@ Partial Class Form1
         '
         'gb_datos_pedido
         '
+        Me.gb_datos_pedido.Controls.Add(Me.lbl_PedidoPS)
+        Me.gb_datos_pedido.Controls.Add(Me.txt_cantidad)
+        Me.gb_datos_pedido.Controls.Add(Me.Label8)
         Me.gb_datos_pedido.Controls.Add(Me.lbl_cartillas)
         Me.gb_datos_pedido.Controls.Add(Me.Label7)
         Me.gb_datos_pedido.Controls.Add(Me.chk_Todo)
@@ -390,6 +396,32 @@ Partial Class Form1
         Me.lbl_impresora.Size = New System.Drawing.Size(25, 20)
         Me.lbl_impresora.Text = "-"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(283, 199)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 16)
+        Me.Label8.TabIndex = 23
+        Me.Label8.Text = "CANTIDAD"
+        '
+        'txt_cantidad
+        '
+        Me.txt_cantidad.Location = New System.Drawing.Point(361, 196)
+        Me.txt_cantidad.MaxLength = 14
+        Me.txt_cantidad.Name = "txt_cantidad"
+        Me.txt_cantidad.ReadOnly = True
+        Me.txt_cantidad.Size = New System.Drawing.Size(111, 22)
+        Me.txt_cantidad.TabIndex = 24
+        '
+        'lbl_PedidoPS
+        '
+        Me.lbl_PedidoPS.AutoSize = True
+        Me.lbl_PedidoPS.Location = New System.Drawing.Point(284, 44)
+        Me.lbl_PedidoPS.Name = "lbl_PedidoPS"
+        Me.lbl_PedidoPS.Size = New System.Drawing.Size(0, 16)
+        Me.lbl_PedidoPS.TabIndex = 25
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -452,4 +484,7 @@ Partial Class Form1
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents lbl_impresora As ToolStripDropDownButton
+    Friend WithEvents txt_cantidad As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lbl_PedidoPS As Label
 End Class
