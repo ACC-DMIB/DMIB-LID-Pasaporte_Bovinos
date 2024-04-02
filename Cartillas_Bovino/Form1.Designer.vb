@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -43,6 +43,9 @@ Partial Class Form1
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.txt_pedido_PS = New System.Windows.Forms.TextBox()
         Me.gb_datos_pedido = New System.Windows.Forms.GroupBox()
+        Me.lbl_PedidoPS = New System.Windows.Forms.Label()
+        Me.txt_cantidad = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.lbl_cartillas = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.chk_Todo = New System.Windows.Forms.CheckBox()
@@ -58,9 +61,6 @@ Partial Class Form1
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lbl_impresora = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txt_cantidad = New System.Windows.Forms.TextBox()
-        Me.lbl_PedidoPS = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UspGetPedidoBovinoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -270,6 +270,32 @@ Partial Class Form1
         Me.gb_datos_pedido.TabStop = False
         Me.gb_datos_pedido.Text = "DATOS PEDIDO"
         '
+        'lbl_PedidoPS
+        '
+        Me.lbl_PedidoPS.AutoSize = True
+        Me.lbl_PedidoPS.Location = New System.Drawing.Point(284, 44)
+        Me.lbl_PedidoPS.Name = "lbl_PedidoPS"
+        Me.lbl_PedidoPS.Size = New System.Drawing.Size(0, 16)
+        Me.lbl_PedidoPS.TabIndex = 25
+        '
+        'txt_cantidad
+        '
+        Me.txt_cantidad.Location = New System.Drawing.Point(361, 196)
+        Me.txt_cantidad.MaxLength = 14
+        Me.txt_cantidad.Name = "txt_cantidad"
+        Me.txt_cantidad.ReadOnly = True
+        Me.txt_cantidad.Size = New System.Drawing.Size(111, 22)
+        Me.txt_cantidad.TabIndex = 24
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(283, 199)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 16)
+        Me.Label8.TabIndex = 23
+        Me.Label8.Text = "CANTIDAD"
+        '
         'lbl_cartillas
         '
         Me.lbl_cartillas.AutoSize = True
@@ -395,32 +421,6 @@ Partial Class Form1
         Me.lbl_impresora.Name = "lbl_impresora"
         Me.lbl_impresora.Size = New System.Drawing.Size(25, 20)
         Me.lbl_impresora.Text = "-"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(283, 199)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 16)
-        Me.Label8.TabIndex = 23
-        Me.Label8.Text = "CANTIDAD"
-        '
-        'txt_cantidad
-        '
-        Me.txt_cantidad.Location = New System.Drawing.Point(361, 196)
-        Me.txt_cantidad.MaxLength = 14
-        Me.txt_cantidad.Name = "txt_cantidad"
-        Me.txt_cantidad.ReadOnly = True
-        Me.txt_cantidad.Size = New System.Drawing.Size(111, 22)
-        Me.txt_cantidad.TabIndex = 24
-        '
-        'lbl_PedidoPS
-        '
-        Me.lbl_PedidoPS.AutoSize = True
-        Me.lbl_PedidoPS.Location = New System.Drawing.Point(284, 44)
-        Me.lbl_PedidoPS.Name = "lbl_PedidoPS"
-        Me.lbl_PedidoPS.Size = New System.Drawing.Size(0, 16)
-        Me.lbl_PedidoPS.TabIndex = 25
         '
         'Form1
         '

@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports BaiqiSoft.LabelControl
 
 Public Class Form1
 
@@ -68,11 +69,11 @@ Public Class Form1
     Private Sub btn_imprimir_Click(sender As Object, e As EventArgs) Handles btn_imprimir.Click
 
         If chk_Todo.Checked Then
-            Imprimir_Pedido()
+            Imprimir_Pedido_Completo()
         Else
             For i = 0 To dgv_crotales.Rows.Count - 1
                 If dgv_crotales.Rows(i).Cells(0).Value Then
-                    Imprimir_Cartilla_Suelta(dgv_crotales.Rows(i).Cells(1).Value, dgv_crotales.Rows(i).Cells(2).Value)
+                    Imprimir_Pasaporte(dgv_crotales.Rows(i).Cells(1).Value, dgv_crotales.Rows(i).Cells(2).Value)
                 End If
             Next
         End If
@@ -80,13 +81,81 @@ Public Class Form1
 
     End Sub
 
+#Region "DATAMARS LABEL"
+    'IMPRESION CON DATAMARS LABEL
+    Private Sub Imprimir_Pasaporte(ByVal crotal As String, ByVal cod_barras As String)
+
+        Dim pasaporte As New LabelPrinting()
+
+        pasaporte.OpenLabel(My.Application.Info.DirectoryPath & "\DMESP_Pasaporte_Bovino.blf")
+        pasaporte.PageSetup.PrinterName = lbl_impresora.Text
+        pasaporte.LicenseKey = "71P49Q8100W26Q168Y60"
+        Dim printerVarNames(1) As String
+        Dim printerVars(1) As String
+        printerVarNames(0) = "Var01"
+        printerVarNames(1) = "Var02"
+        printerVars(0) = crotal
+        printerVars(1) = cod_barras
+
+        Dim m_DataTable As New DataTable
+        For i = 0 To printerVarNames.Length - 1
+            m_DataTable.Columns.Add(printerVarNames(i))
+        Next
+        pasaporte.DataSource = m_DataTable
+
+        Dim row As DataRow = m_DataTable.NewRow
+        For i = 0 To 1
+            row(printerVarNames(i)) = printerVars(i)
+        Next
+        m_DataTable.Rows.Add(row)
+        pasaporte.PrintOut(False)
+
+    End Sub
+
+    'IMPRESION CON DATAMARS LABEL
+    Private Sub Imprimir_Pedido_Completo()
+
+        Dim m_DataTable As New DataTable
+        Dim printerVarNames(1) As String
+        Dim printerVars(1) As String
+        printerVarNames(0) = "Var01"
+        printerVarNames(1) = "Var02"
+
+        For i = 0 To printerVarNames.Length - 1
+            m_DataTable.Columns.Add(printerVarNames(i))
+        Next
+
+        For i = 0 To dgv_crotales.Rows.Count - 1
+            Dim pasaporte As New LabelPrinting()
+            pasaporte.OpenLabel(My.Application.Info.DirectoryPath & "\DMESP_Pasaporte_Bovino.blf")
+            pasaporte.PageSetup.PrinterName = lbl_impresora.Text
+            pasaporte.LicenseKey = "71P49Q8100W26Q168Y60"
+
+            pasaporte.DataSource = m_DataTable
+            printerVars(0) = dgv_crotales.Rows(i).Cells(1).Value
+            printerVars(1) = dgv_crotales.Rows(i).Cells(2).Value
+            Dim row As DataRow = m_DataTable.NewRow
+            For j = 0 To 1
+                row(printerVarNames(j)) = printerVars(j)
+            Next
+            m_DataTable.Rows.Add(row)
+            pasaporte.PrintOut(False)
+            m_DataTable.Clear()
+        Next
+
+    End Sub
+#End Region
+
+
+#Region "BARTENDER"
+    'IMPRESION CON BARTENDER
     Private Sub Imprimir_Pedido()
 
         'Declaring a BarTender application variable 
         Dim btApp As BarTender.Application
         'Declaring a format variable 
-        Dim btFormat As BarTender.Format
-        btFormat = New BarTender.Format
+        Dim btFormat As New BarTender.Format
+        'btFormat = New BarTender.Format
 
         Try
             btApp = New BarTender.Application
@@ -122,14 +191,13 @@ Public Class Form1
 
     End Sub
 
+    'IMPRESION CON BARTENDER
     Private Sub Imprimir_Cartilla_Suelta(ByVal crotal As String, ByVal cod_barras As String)
 
         'Declaring a BarTender application variable 
         Dim btApp As BarTender.Application
         'Declaring a format variable 
-        Dim btFormat As BarTender.Format
-
-        btFormat = New BarTender.Format
+        Dim btFormat As New BarTender.Format
 
         Try
             btApp = New BarTender.Application
@@ -162,6 +230,7 @@ Public Class Form1
         'Instantiating the BarTender object 
 
     End Sub
+#End Region
 
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
 

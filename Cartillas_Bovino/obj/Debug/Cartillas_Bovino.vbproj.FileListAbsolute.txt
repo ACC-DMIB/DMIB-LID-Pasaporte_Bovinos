@@ -60,3 +60,4 @@ E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovi
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.exe
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.CopyComplete
