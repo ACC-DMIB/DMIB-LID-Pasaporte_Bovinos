@@ -1,9 +1,12 @@
 ﻿Imports System.IO
 Imports BaiqiSoft.LabelControl
+Imports ClosedXML.Excel
+Imports Microsoft.Office.Interop
 
 Public Class Form1
 
     Dim dt_crotales As DataTable
+    Dim dt_excel As New DataTable
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -78,6 +81,7 @@ Public Class Form1
             Next
         End If
         Crear_Parser()
+        Crear_Archivo_Pegatinas()
 
     End Sub
 
@@ -400,22 +404,84 @@ Public Class Form1
 
     Private Sub Crear_Parser()
 
-        Dim txt_Parser As String = My.Application.Info.DirectoryPath & "\Parser\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text & "_" & txt_ganadero.Text & "_" & txt_cantidad.Text & ".csv"
-        Dim sw_Parser As New StreamWriter(txt_Parser)
+        Try
+            Dim txt_Parser As String = My.Application.Info.DirectoryPath & "\Parser\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text.Trim & "_" & txt_ganadero.Text.Trim & "_" & txt_cantidad.Text & ".csv"
+            Dim sw_Parser As New StreamWriter(txt_Parser)
 
-        sw_Parser.WriteLine("Var01,Var02,Var03,Var04,Var05,Var06")
-        For i = 0 To dgv_crotales.Rows.Count - 1
-            If dgv_crotales.Rows(i).Cells(0).Value Then
-                sw_Parser.WriteLine("ES," &                                                                 'Var01
-                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(2, 2) & "," &    'Var02
-                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(4, 2) & "," &    'Var03
-                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(6, 4) & "," &    'Var04
-                                    dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(10, 4) & "," &   'Var05
-                                    dgv_crotales.Rows(i).Cells(2).Value)                                    'Var06
-            End If
-        Next
-        sw_Parser.Flush()
-        sw_Parser.Close()
+            sw_Parser.WriteLine("Var01,Var02,Var03,Var04,Var05,Var06")
+            For i = 0 To dgv_crotales.Rows.Count - 1
+                If dgv_crotales.Rows(i).Cells(0).Value Then
+                    sw_Parser.WriteLine("ES," &                                                                 'Var01
+                                        dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(2, 2) & "," &    'Var02
+                                        dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(4, 2) & "," &    'Var03
+                                        dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(6, 4) & "," &    'Var04
+                                        dgv_crotales.Rows(i).Cells(1).Value.ToString.Substring(10, 4) & "," &   'Var05
+                                        dgv_crotales.Rows(i).Cells(2).Value)                                    'Var06
+                End If
+            Next
+            sw_Parser.Flush()
+            sw_Parser.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error al crear el archivo para el PARSER", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
 
     End Sub
+
+    Private Sub Crear_Archivo_Pegatinas()
+
+        Dim oXls As Object
+        Dim oLibro As Object
+        Dim oHoja As Object
+
+        oXls = CreateObject("Excel.Application")
+
+        oLibro = oXls.WorkBooks.Add()
+        oHoja = oLibro.Worksheets(1)
+
+        Dim cantidad As Integer = 1
+        Dim fila As Integer = 1
+        Dim lineas As Integer
+        If txt_cantidad.Text Mod 10 = 0 Then
+            lineas = txt_cantidad.Text / 10
+        Else
+            lineas = (txt_cantidad.Text / 10) + 1
+        End If
+        Dim arTable(lineas + 1, 10) As String
+        arTable(0, 0) = "dato1"
+        arTable(0, 1) = "dato2"
+        arTable(0, 2) = "dato3"
+        arTable(0, 3) = "dato4"
+        arTable(0, 4) = "dato5"
+        arTable(0, 5) = "dato6"
+        arTable(0, 6) = "dato7"
+        arTable(0, 7) = "dato8"
+        arTable(0, 8) = "dato9"
+        arTable(0, 9) = "dato10"
+        For i = 0 To dgv_crotales.Rows.Count - 1
+            If dgv_crotales.Rows(i).Cells(0).Value Then
+                arTable(fila, cantidad - 1) = dgv_crotales.Rows(i).Cells(1).Value
+            End If
+            If cantidad = 10 Then
+                cantidad = 1
+                fila += 1
+            Else
+                cantidad += 1
+            End If
+        Next
+        Dim objxlRange As Object
+        objxlRange = oHoja.Range("A" & 1 & ":J" & lineas + 1)
+        objxlRange.Value = arTable
+
+        oLibro.saveas(My.Application.Info.DirectoryPath & "\Pegatinas\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text.Trim & "_" & txt_ganadero.Text.Trim & "_" & txt_cantidad.Text & ".xls")
+
+        oLibro.Close()
+        oLibro = Nothing
+        oXls.Quit()
+        oXls = Nothing
+        oHoja = Nothing
+
+    End Sub
+
+
 End Class

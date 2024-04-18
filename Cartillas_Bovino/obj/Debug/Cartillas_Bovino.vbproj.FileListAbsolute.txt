@@ -61,3 +61,10 @@ E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovi
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.xml
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.pdb
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.vbproj.CopyComplete
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ClosedXML.dll
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\DocumentFormat.OpenXml.dll
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ExcelNumberFormat.dll
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ClosedXML.pdb
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ClosedXML.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\DocumentFormat.OpenXml.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ExcelNumberFormat.xml
