@@ -247,7 +247,7 @@ Public Class Form1
                 Cargar_Datos_Pedido(0)
             End If
         Else
-            MsgBox("No existe ningún pedido de bovino con ese pedido PS")
+            MessageBox.Show("No existe ningún pedido de bovino para fabricar en DMES con el pedido " & txt_pedido_PS.Text, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txt_inicio.Text = ""
             txt_final.Text = ""
             txt_cliente.Text = ""
@@ -268,12 +268,18 @@ Public Class Form1
 
     Private Sub Cargar_Datos_Pedido(ByVal fila As Integer)
 
-        btn_imprimir.Enabled = True
         txt_pedido.Text = dgv_pedidos.Rows(fila).Cells(0).Value
         txt_cliente.Text = dgv_pedidos.Rows(fila).Cells(1).Value
         txt_ganadero.Text = dgv_pedidos.Rows(fila).Cells(2).Value
-        txt_inicio.Text = dgv_pedidos.Rows(fila).Cells(3).Value
-        txt_final.Text = dgv_pedidos.Rows(fila).Cells(4).Value
+        If dgv_pedidos.Rows(fila).Cells(3).Value <> "" Then
+            txt_inicio.Text = dgv_pedidos.Rows(fila).Cells(3).Value
+            txt_final.Text = dgv_pedidos.Rows(fila).Cells(4).Value
+            btn_imprimir.Enabled = True
+        Else
+            MessageBox.Show("El pedido no tiene rango asociado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            btn_imprimir.Enabled = False
+            Exit Sub
+        End If
         txt_cantidad.Text = dgv_pedidos.Rows(fila).Cells(5).Value
         lbl_PedidoPS.Text = txt_pedido_PS.Text
         Cargar_Listado_Crotales()
@@ -422,7 +428,7 @@ Public Class Form1
             sw_Parser.Flush()
             sw_Parser.Close()
         Catch ex As Exception
-            MessageBox.Show("Error al crear el archivo para el PARSER", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error al crear el archivo para el PARSER " & vbCrLf & ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
 
@@ -430,56 +436,60 @@ Public Class Form1
 
     Private Sub Crear_Archivo_Pegatinas()
 
-        Dim oXls As Object
-        Dim oLibro As Object
-        Dim oHoja As Object
+        Try
+            Dim oXls As Object
+            Dim oLibro As Object
+            Dim oHoja As Object
 
-        oXls = CreateObject("Excel.Application")
+            oXls = CreateObject("Excel.Application")
 
-        oLibro = oXls.WorkBooks.Add()
-        oHoja = oLibro.Worksheets(1)
+            oLibro = oXls.WorkBooks.Add()
+            oHoja = oLibro.Worksheets(1)
 
-        Dim cantidad As Integer = 1
-        Dim fila As Integer = 1
-        Dim lineas As Integer
-        If txt_cantidad.Text Mod 10 = 0 Then
-            lineas = txt_cantidad.Text / 10
-        Else
-            lineas = (txt_cantidad.Text / 10) + 1
-        End If
-        Dim arTable(lineas + 1, 10) As String
-        arTable(0, 0) = "dato1"
-        arTable(0, 1) = "dato2"
-        arTable(0, 2) = "dato3"
-        arTable(0, 3) = "dato4"
-        arTable(0, 4) = "dato5"
-        arTable(0, 5) = "dato6"
-        arTable(0, 6) = "dato7"
-        arTable(0, 7) = "dato8"
-        arTable(0, 8) = "dato9"
-        arTable(0, 9) = "dato10"
-        For i = 0 To dgv_crotales.Rows.Count - 1
-            If dgv_crotales.Rows(i).Cells(0).Value Then
-                arTable(fila, cantidad - 1) = dgv_crotales.Rows(i).Cells(1).Value
-            End If
-            If cantidad = 10 Then
-                cantidad = 1
-                fila += 1
+            Dim cantidad As Integer = 1
+            Dim fila As Integer = 1
+            Dim lineas As Integer
+            If txt_cantidad.Text Mod 10 = 0 Then
+                lineas = txt_cantidad.Text / 10
             Else
-                cantidad += 1
+                lineas = (txt_cantidad.Text / 10) + 1
             End If
-        Next
-        Dim objxlRange As Object
-        objxlRange = oHoja.Range("A" & 1 & ":J" & lineas + 1)
-        objxlRange.Value = arTable
+            Dim arTable(lineas + 1, 10) As String
+            arTable(0, 0) = "dato1"
+            arTable(0, 1) = "dato2"
+            arTable(0, 2) = "dato3"
+            arTable(0, 3) = "dato4"
+            arTable(0, 4) = "dato5"
+            arTable(0, 5) = "dato6"
+            arTable(0, 6) = "dato7"
+            arTable(0, 7) = "dato8"
+            arTable(0, 8) = "dato9"
+            arTable(0, 9) = "dato10"
+            For i = 0 To dgv_crotales.Rows.Count - 1
+                If dgv_crotales.Rows(i).Cells(0).Value Then
+                    arTable(fila, cantidad - 1) = dgv_crotales.Rows(i).Cells(1).Value
+                End If
+                If cantidad = 10 Then
+                    cantidad = 1
+                    fila += 1
+                Else
+                    cantidad += 1
+                End If
+            Next
+            Dim objxlRange As Object
+            objxlRange = oHoja.Range("A" & 1 & ":J" & lineas + 1)
+            objxlRange.Value = arTable
 
-        oLibro.saveas(My.Application.Info.DirectoryPath & "\Pegatinas\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text.Trim & "_" & txt_ganadero.Text.Trim & "_" & txt_cantidad.Text & ".xls")
+            oLibro.saveas(My.Application.Info.DirectoryPath & "\Pegatinas\" & txt_pedido_PS.Text & "_" & txt_pedido.Text & "_" & txt_cliente.Text.Trim & "_" & txt_ganadero.Text.Trim & "_" & txt_cantidad.Text & ".xls")
 
-        oLibro.Close()
-        oLibro = Nothing
-        oXls.Quit()
-        oXls = Nothing
-        oHoja = Nothing
+            oLibro.Close()
+            oLibro = Nothing
+            oXls.Quit()
+            oXls = Nothing
+            oHoja = Nothing
+        Catch ex As Exception
+            MessageBox.Show("Error al crear el archivo para las PEGATINAS " & vbCrLf & ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
     End Sub
 
