@@ -68,3 +68,5 @@ E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovi
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ClosedXML.xml
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\DocumentFormat.OpenXml.xml
 E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\bin\Debug\ExcelNumberFormat.xml
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Pasaportes_Manual.resources
+E:\OneDrive - Datamars SA\PROYECTOS VISUAL STUDIO\GITHUB\DMIB-LID-Pasaporte_Bovinos\Cartillas_Bovino\obj\Debug\Cartillas_Bovino.Form_Inicio.resources

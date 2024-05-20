@@ -94,6 +94,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crotales.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -101,11 +102,18 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_Inicio.Designer.vb">
+      <DependentUpon>Form_Inicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Inicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="iniaccess.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,6 +125,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Pasaportes_Manual.Designer.vb">
+      <DependentUpon>Pasaportes_Manual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pasaportes_Manual.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pedidos_OSDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,11 +141,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Inicio.resx">
+      <DependentUpon>Form_Inicio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pasaportes_Manual.resx">
+      <DependentUpon>Pasaportes_Manual.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

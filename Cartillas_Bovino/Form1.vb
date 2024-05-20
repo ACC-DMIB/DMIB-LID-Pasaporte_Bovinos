@@ -10,12 +10,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim ImpDefecto As New System.Drawing.Printing.PrinterSettings
         Crear_dt_crotales()
-        lbl_impresora.Text = INIRead(My.Application.Info.DirectoryPath & "\settings.ini",
-                                    "Impresora",
-                                    "Impresora",
-                                    ImpDefecto.PrinterName)
 
     End Sub
 
@@ -92,7 +87,7 @@ Public Class Form1
         Dim pasaporte As New LabelPrinting()
 
         pasaporte.OpenLabel(My.Application.Info.DirectoryPath & "\DMESP_Pasaporte_Bovino.blf")
-        pasaporte.PageSetup.PrinterName = lbl_impresora.Text
+        pasaporte.PageSetup.PrinterName = Form_Inicio.lbl_impresora.Text
         pasaporte.LicenseKey = "71P49Q8100W26Q168Y60"
         Dim printerVarNames(1) As String
         Dim printerVars(1) As String
@@ -132,7 +127,7 @@ Public Class Form1
         For i = 0 To dgv_crotales.Rows.Count - 1
             Dim pasaporte As New LabelPrinting()
             pasaporte.OpenLabel(My.Application.Info.DirectoryPath & "\DMESP_Pasaporte_Bovino.blf")
-            pasaporte.PageSetup.PrinterName = lbl_impresora.Text
+            pasaporte.PageSetup.PrinterName = Form_Inicio.lbl_impresora.Text
             pasaporte.LicenseKey = "71P49Q8100W26Q168Y60"
 
             pasaporte.DataSource = m_DataTable
@@ -381,32 +376,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub lbl_impresora_DropDownOpening(sender As Object, e As EventArgs) Handles lbl_impresora.DropDownOpening
 
-        Dim pkInstalledPrinters As String
-
-        For i As Integer = lbl_impresora.DropDownItems.Count - 1 To 0 Step -1
-            RemoveHandler lbl_impresora.DropDownItems(i).Click, AddressOf ImpresorasMenuItem_Click
-            lbl_impresora.DropDownItems.RemoveAt(i)
-        Next
-
-        lbl_impresora.DropDownItems.Clear()
-
-        'Find all printers installed
-        For Each pkInstalledPrinters In Drawing.Printing.PrinterSettings.InstalledPrinters
-            lbl_impresora.DropDownItems.Add(pkInstalledPrinters)
-            AddHandler lbl_impresora.DropDownItems(lbl_impresora.DropDownItems.Count - 1).Click, AddressOf ImpresorasMenuItem_Click
-        Next pkInstalledPrinters
-
-    End Sub
-
-    Private Sub ImpresorasMenuItem_Click(sender As Object, e As EventArgs)
-
-        Dim obj As ToolStripDropDownItem = sender
-        lbl_impresora.Text = obj.Text
-        INIWrite(My.Application.Info.DirectoryPath & "\Settings.ini", "Impresora", "Impresora", lbl_impresora.Text)
-
-    End Sub
 
     Private Sub Crear_Parser()
 
@@ -430,7 +400,6 @@ Public Class Form1
         Catch ex As Exception
             MessageBox.Show("Error al crear el archivo para el PARSER " & vbCrLf & ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
 
     End Sub
 

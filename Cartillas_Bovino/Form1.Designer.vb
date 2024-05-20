@@ -58,16 +58,12 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.UspGetPedidoBovinoTableAdapter = New Cartillas_Bovino.Pedidos_OSDataSetTableAdapters.uspGetPedidoBovinoTableAdapter()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lbl_impresora = New System.Windows.Forms.ToolStripDropDownButton()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgv_pedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UspGetPedidoBovinoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pedidos_OSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_datos_pedido.SuspendLayout()
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_imprimir
@@ -94,7 +90,7 @@ Partial Class Form1
         Me.txt_inicio.MaxLength = 14
         Me.txt_inicio.Name = "txt_inicio"
         Me.txt_inicio.ReadOnly = True
-        Me.txt_inicio.Size = New System.Drawing.Size(172, 22)
+        Me.txt_inicio.Size = New System.Drawing.Size(172, 26)
         Me.txt_inicio.TabIndex = 10
         '
         'Label1
@@ -102,7 +98,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(17, 176)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 16)
+        Me.Label1.Size = New System.Drawing.Size(66, 19)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "DESDE"
         '
@@ -111,7 +107,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(17, 220)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 16)
+        Me.Label2.Size = New System.Drawing.Size(61, 19)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "HASTA"
         '
@@ -121,7 +117,7 @@ Partial Class Form1
         Me.txt_final.MaxLength = 14
         Me.txt_final.Name = "txt_final"
         Me.txt_final.ReadOnly = True
-        Me.txt_final.Size = New System.Drawing.Size(172, 22)
+        Me.txt_final.Size = New System.Drawing.Size(172, 26)
         Me.txt_final.TabIndex = 11
         '
         'GroupBox2
@@ -149,6 +145,7 @@ Partial Class Form1
         Me.dgv_pedidos.Location = New System.Drawing.Point(6, 72)
         Me.dgv_pedidos.Name = "dgv_pedidos"
         Me.dgv_pedidos.ReadOnly = True
+        Me.dgv_pedidos.RowHeadersWidth = 51
         Me.dgv_pedidos.Size = New System.Drawing.Size(847, 118)
         Me.dgv_pedidos.TabIndex = 9
         '
@@ -156,13 +153,16 @@ Partial Class Form1
         '
         Me.PedidoDataGridViewTextBoxColumn.DataPropertyName = "Pedido"
         Me.PedidoDataGridViewTextBoxColumn.HeaderText = "Pedido"
+        Me.PedidoDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.PedidoDataGridViewTextBoxColumn.Name = "PedidoDataGridViewTextBoxColumn"
         Me.PedidoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PedidoDataGridViewTextBoxColumn.Width = 125
         '
         'ClienteDataGridViewTextBoxColumn
         '
         Me.ClienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente"
         Me.ClienteDataGridViewTextBoxColumn.HeaderText = "Cliente"
+        Me.ClienteDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.ClienteDataGridViewTextBoxColumn.Name = "ClienteDataGridViewTextBoxColumn"
         Me.ClienteDataGridViewTextBoxColumn.ReadOnly = True
         Me.ClienteDataGridViewTextBoxColumn.Width = 200
@@ -171,6 +171,7 @@ Partial Class Form1
         '
         Me.GanaderoDataGridViewTextBoxColumn.DataPropertyName = "Ganadero"
         Me.GanaderoDataGridViewTextBoxColumn.HeaderText = "Ganadero"
+        Me.GanaderoDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.GanaderoDataGridViewTextBoxColumn.Name = "GanaderoDataGridViewTextBoxColumn"
         Me.GanaderoDataGridViewTextBoxColumn.ReadOnly = True
         Me.GanaderoDataGridViewTextBoxColumn.Width = 200
@@ -179,6 +180,7 @@ Partial Class Form1
         '
         Me.DesdeDataGridViewTextBoxColumn.DataPropertyName = "Desde"
         Me.DesdeDataGridViewTextBoxColumn.HeaderText = "Desde"
+        Me.DesdeDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.DesdeDataGridViewTextBoxColumn.Name = "DesdeDataGridViewTextBoxColumn"
         Me.DesdeDataGridViewTextBoxColumn.ReadOnly = True
         Me.DesdeDataGridViewTextBoxColumn.Width = 115
@@ -187,6 +189,7 @@ Partial Class Form1
         '
         Me.HastaDataGridViewTextBoxColumn.DataPropertyName = "Hasta"
         Me.HastaDataGridViewTextBoxColumn.HeaderText = "Hasta"
+        Me.HastaDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.HastaDataGridViewTextBoxColumn.Name = "HastaDataGridViewTextBoxColumn"
         Me.HastaDataGridViewTextBoxColumn.ReadOnly = True
         Me.HastaDataGridViewTextBoxColumn.Width = 115
@@ -195,6 +198,7 @@ Partial Class Form1
         '
         Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
         Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.MinimumWidth = 6
         Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
         Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
         Me.CantidadDataGridViewTextBoxColumn.Width = 70
@@ -214,7 +218,7 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(13, 37)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 16)
+        Me.Label3.Size = New System.Drawing.Size(99, 19)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "PEDIDO PS"
         '
@@ -239,7 +243,7 @@ Partial Class Form1
         '
         Me.txt_pedido_PS.Location = New System.Drawing.Point(104, 34)
         Me.txt_pedido_PS.Name = "txt_pedido_PS"
-        Me.txt_pedido_PS.Size = New System.Drawing.Size(236, 22)
+        Me.txt_pedido_PS.Size = New System.Drawing.Size(236, 26)
         Me.txt_pedido_PS.TabIndex = 0
         '
         'gb_datos_pedido
@@ -275,7 +279,7 @@ Partial Class Form1
         Me.lbl_PedidoPS.AutoSize = True
         Me.lbl_PedidoPS.Location = New System.Drawing.Point(284, 44)
         Me.lbl_PedidoPS.Name = "lbl_PedidoPS"
-        Me.lbl_PedidoPS.Size = New System.Drawing.Size(0, 16)
+        Me.lbl_PedidoPS.Size = New System.Drawing.Size(0, 19)
         Me.lbl_PedidoPS.TabIndex = 25
         '
         'txt_cantidad
@@ -284,7 +288,7 @@ Partial Class Form1
         Me.txt_cantidad.MaxLength = 14
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.ReadOnly = True
-        Me.txt_cantidad.Size = New System.Drawing.Size(111, 22)
+        Me.txt_cantidad.Size = New System.Drawing.Size(111, 26)
         Me.txt_cantidad.TabIndex = 24
         '
         'Label8
@@ -292,7 +296,7 @@ Partial Class Form1
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(283, 199)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 16)
+        Me.Label8.Size = New System.Drawing.Size(92, 19)
         Me.Label8.TabIndex = 23
         Me.Label8.Text = "CANTIDAD"
         '
@@ -301,7 +305,7 @@ Partial Class Form1
         Me.lbl_cartillas.AutoSize = True
         Me.lbl_cartillas.Location = New System.Drawing.Point(816, 306)
         Me.lbl_cartillas.Name = "lbl_cartillas"
-        Me.lbl_cartillas.Size = New System.Drawing.Size(15, 16)
+        Me.lbl_cartillas.Size = New System.Drawing.Size(18, 19)
         Me.lbl_cartillas.TabIndex = 22
         Me.lbl_cartillas.Text = "0"
         '
@@ -310,7 +314,7 @@ Partial Class Form1
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(694, 306)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(116, 16)
+        Me.Label7.Size = New System.Drawing.Size(145, 19)
         Me.Label7.TabIndex = 21
         Me.Label7.Text = "Cartillas a imprimir"
         '
@@ -319,7 +323,7 @@ Partial Class Form1
         Me.chk_Todo.AutoSize = True
         Me.chk_Todo.Location = New System.Drawing.Point(478, 305)
         Me.chk_Todo.Name = "chk_Todo"
-        Me.chk_Todo.Size = New System.Drawing.Size(158, 20)
+        Me.chk_Todo.Size = New System.Drawing.Size(198, 23)
         Me.chk_Todo.TabIndex = 20
         Me.chk_Todo.Text = "Imprimir todo el pedido"
         Me.chk_Todo.UseVisualStyleBackColor = True
@@ -332,13 +336,16 @@ Partial Class Form1
         Me.dgv_crotales.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Imprimir})
         Me.dgv_crotales.Location = New System.Drawing.Point(478, 21)
         Me.dgv_crotales.Name = "dgv_crotales"
+        Me.dgv_crotales.RowHeadersWidth = 51
         Me.dgv_crotales.Size = New System.Drawing.Size(376, 278)
         Me.dgv_crotales.TabIndex = 19
         '
         'Imprimir
         '
         Me.Imprimir.HeaderText = "Imprimir"
+        Me.Imprimir.MinimumWidth = 6
         Me.Imprimir.Name = "Imprimir"
+        Me.Imprimir.Width = 125
         '
         'txt_pedido
         '
@@ -346,7 +353,7 @@ Partial Class Form1
         Me.txt_pedido.MaxLength = 14
         Me.txt_pedido.Name = "txt_pedido"
         Me.txt_pedido.ReadOnly = True
-        Me.txt_pedido.Size = New System.Drawing.Size(172, 22)
+        Me.txt_pedido.Size = New System.Drawing.Size(172, 26)
         Me.txt_pedido.TabIndex = 18
         '
         'txt_cliente
@@ -355,7 +362,7 @@ Partial Class Form1
         Me.txt_cliente.MaxLength = 14
         Me.txt_cliente.Name = "txt_cliente"
         Me.txt_cliente.ReadOnly = True
-        Me.txt_cliente.Size = New System.Drawing.Size(367, 22)
+        Me.txt_cliente.Size = New System.Drawing.Size(367, 26)
         Me.txt_cliente.TabIndex = 17
         '
         'txt_ganadero
@@ -364,7 +371,7 @@ Partial Class Form1
         Me.txt_ganadero.MaxLength = 14
         Me.txt_ganadero.Name = "txt_ganadero"
         Me.txt_ganadero.ReadOnly = True
-        Me.txt_ganadero.Size = New System.Drawing.Size(367, 22)
+        Me.txt_ganadero.Size = New System.Drawing.Size(367, 26)
         Me.txt_ganadero.TabIndex = 16
         '
         'Label6
@@ -372,7 +379,7 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(17, 44)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 16)
+        Me.Label6.Size = New System.Drawing.Size(72, 19)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "PEDIDO"
         '
@@ -381,7 +388,7 @@ Partial Class Form1
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(17, 88)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(61, 16)
+        Me.Label5.Size = New System.Drawing.Size(77, 19)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "CLIENTE"
         '
@@ -390,7 +397,7 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(17, 132)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 16)
+        Me.Label4.Size = New System.Drawing.Size(100, 19)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "GANADERO"
         '
@@ -398,43 +405,19 @@ Partial Class Form1
         '
         Me.UspGetPedidoBovinoTableAdapter.ClearBeforeFill = True
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lbl_impresora})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 561)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(884, 22)
-        Me.StatusStrip1.TabIndex = 10
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(60, 17)
-        Me.ToolStripStatusLabel1.Text = "Impresora"
-        '
-        'lbl_impresora
-        '
-        Me.lbl_impresora.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.lbl_impresora.Image = CType(resources.GetObject("lbl_impresora.Image"), System.Drawing.Image)
-        Me.lbl_impresora.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.lbl_impresora.Name = "lbl_impresora"
-        Me.lbl_impresora.Size = New System.Drawing.Size(25, 20)
-        Me.lbl_impresora.Text = "-"
-        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(884, 583)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.ClientSize = New System.Drawing.Size(884, 553)
         Me.Controls.Add(Me.gb_datos_pedido)
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CARTILLAS BOVINO"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -444,10 +427,7 @@ Partial Class Form1
         Me.gb_datos_pedido.ResumeLayout(False)
         Me.gb_datos_pedido.PerformLayout()
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btn_imprimir As System.Windows.Forms.Button
@@ -481,9 +461,6 @@ Partial Class Form1
     Friend WithEvents chk_Todo As CheckBox
     Friend WithEvents lbl_cartillas As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
-    Friend WithEvents lbl_impresora As ToolStripDropDownButton
     Friend WithEvents txt_cantidad As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents lbl_PedidoPS As Label
