@@ -60,7 +60,7 @@ Partial Class Pasaportes_Manual
         Me.btn_crear_numeracion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_crear_numeracion.Name = "btn_crear_numeracion"
         Me.btn_crear_numeracion.Size = New System.Drawing.Size(253, 59)
-        Me.btn_crear_numeracion.TabIndex = 1
+        Me.btn_crear_numeracion.TabIndex = 2
         Me.btn_crear_numeracion.Text = "GENERAR NUMERACIÓN"
         Me.btn_crear_numeracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_crear_numeracion.UseVisualStyleBackColor = True
@@ -72,7 +72,7 @@ Partial Class Pasaportes_Manual
         Me.txt_inicio.MaxLength = 14
         Me.txt_inicio.Name = "txt_inicio"
         Me.txt_inicio.Size = New System.Drawing.Size(228, 26)
-        Me.txt_inicio.TabIndex = 2
+        Me.txt_inicio.TabIndex = 0
         '
         'Label2
         '
@@ -90,7 +90,7 @@ Partial Class Pasaportes_Manual
         Me.txt_cantidad.MaxLength = 4
         Me.txt_cantidad.Name = "txt_cantidad"
         Me.txt_cantidad.Size = New System.Drawing.Size(228, 26)
-        Me.txt_cantidad.TabIndex = 4
+        Me.txt_cantidad.TabIndex = 1
         '
         'dgv_crotales
         '
@@ -116,9 +116,9 @@ Partial Class Pasaportes_Manual
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(220, 531)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(145, 19)
+        Me.Label7.Size = New System.Drawing.Size(169, 19)
         Me.Label7.TabIndex = 23
-        Me.Label7.Text = "Cartillas a imprimir"
+        Me.Label7.Text = "Pasaportes a imprimir"
         '
         'chk_Todo
         '
@@ -153,7 +153,7 @@ Partial Class Pasaportes_Manual
         Me.btn_imprimir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_imprimir.Name = "btn_imprimir"
         Me.btn_imprimir.Size = New System.Drawing.Size(253, 59)
-        Me.btn_imprimir.TabIndex = 25
+        Me.btn_imprimir.TabIndex = 4
         Me.btn_imprimir.Text = "IMPRIMIR PASAPORTES"
         Me.btn_imprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_imprimir.UseVisualStyleBackColor = True
@@ -172,7 +172,7 @@ Partial Class Pasaportes_Manual
         Me.btn_crear_archivos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_crear_archivos.Name = "btn_crear_archivos"
         Me.btn_crear_archivos.Size = New System.Drawing.Size(253, 59)
-        Me.btn_crear_archivos.TabIndex = 27
+        Me.btn_crear_archivos.TabIndex = 3
         Me.btn_crear_archivos.Text = "CREAR ARCHIVOS"
         Me.btn_crear_archivos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_crear_archivos.UseVisualStyleBackColor = True

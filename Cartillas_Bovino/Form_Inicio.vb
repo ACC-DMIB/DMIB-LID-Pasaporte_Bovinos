@@ -79,4 +79,31 @@
                                    ImpDefecto.PrinterName)
 
     End Sub
+
+    Private Sub lbl_impresora_DropDownOpening_1(sender As Object, e As EventArgs) Handles lbl_impresora.DropDownOpening
+
+        Dim pkInstalledPrinters As String
+
+        For i As Integer = lbl_impresora.DropDownItems.Count - 1 To 0 Step -1
+            RemoveHandler lbl_impresora.DropDownItems(i).Click, AddressOf ImpresorasMenuItem_Click2
+            lbl_impresora.DropDownItems.RemoveAt(i)
+        Next
+
+        lbl_impresora.DropDownItems.Clear()
+
+        'Find all printers installed
+        For Each pkInstalledPrinters In Drawing.Printing.PrinterSettings.InstalledPrinters
+            lbl_impresora.DropDownItems.Add(pkInstalledPrinters)
+            AddHandler lbl_impresora.DropDownItems(lbl_impresora.DropDownItems.Count - 1).Click, AddressOf ImpresorasMenuItem_Click2
+        Next pkInstalledPrinters
+
+    End Sub
+
+    Private Sub ImpresorasMenuItem_Click2(sender As Object, e As EventArgs)
+
+        Dim obj As ToolStripDropDownItem = sender
+        lbl_impresora.Text = obj.Text
+        INIWrite(My.Application.Info.DirectoryPath & "\Impresora.ini", My.Computer.Name, "Impresora", lbl_impresora.Text)
+
+    End Sub
 End Class

@@ -46,7 +46,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>pasaporte.ico</ApplicationIcon>
+    <ApplicationIcon>pasaporte_bovino.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.95.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pasaporte.ico" />
+    <Content Include="pasaporte_bovino.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

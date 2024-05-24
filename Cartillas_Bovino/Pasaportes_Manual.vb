@@ -23,6 +23,13 @@ Public Class Pasaportes_Manual
 
     Private Sub btn_crear_numeracion_Click(sender As Object, e As EventArgs) Handles btn_crear_numeracion.Click
 
+        If txt_inicio.Text.Length = 0 Or txt_cantidad.Text.Length = 0 Then
+            MessageBox.Show("No se puede dejar en blanco el inicio o la cantidad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            btn_crear_archivos.Enabled = False
+            btn_imprimir.Enabled = False
+            Exit Sub
+        End If
+
         Dim crotal As String = ""
         Dim aux_crotal As Long = txt_inicio.Text.Substring(4, 10)
         Dim aux_crotal2 As Long
@@ -59,6 +66,8 @@ Public Class Pasaportes_Manual
         Next
         lbl_cartillas.Text = dgv_crotales.Rows.Count
         btn_crear_archivos.Enabled = True
+        btn_imprimir.Enabled = True
+        chk_Todo.Checked = True
 
     End Sub
 
@@ -98,6 +107,8 @@ Public Class Pasaportes_Manual
                 End If
             Next
         End If
+        dt_crotales.Clear()
+        dgv_crotales.DataSource = Nothing
 
     End Sub
 
@@ -167,6 +178,14 @@ Public Class Pasaportes_Manual
 
     End Sub
 
+    Private Sub txt_cantidad_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_cantidad.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+            btn_crear_numeracion.PerformClick()
+        End If
+
+    End Sub
+
 #Region "DATAMARS LABEL"
     'IMPRESION CON DATAMARS LABEL
     Private Sub Imprimir_Pasaporte(ByVal crotal As String, ByVal cod_barras As String)
@@ -230,5 +249,23 @@ Public Class Pasaportes_Manual
         Next
 
     End Sub
+
+    Private Sub chk_Todo_CheckedChanged(sender As Object, e As EventArgs) Handles chk_Todo.CheckedChanged
+
+        dgv_crotales.Enabled = Not chk_Todo.Checked
+        If chk_Todo.Checked Then
+            For i = 0 To dgv_crotales.Rows.Count - 1
+                dgv_crotales.Rows(i).Cells(0).Value = True
+            Next
+        Else
+            For i = 0 To dgv_crotales.Rows.Count - 1
+                dgv_crotales.Rows(i).Cells(0).Value = False
+            Next
+            dgv_crotales.Columns(1).ReadOnly = True
+            dgv_crotales.Columns(2).ReadOnly = True
+        End If
+
+    End Sub
+
 #End Region
 End Class
