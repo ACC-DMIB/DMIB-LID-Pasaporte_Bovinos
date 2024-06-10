@@ -23,6 +23,7 @@ Public Class Pasaportes_Manual
 
     Private Sub btn_crear_numeracion_Click(sender As Object, e As EventArgs) Handles btn_crear_numeracion.Click
 
+        Me.Cursor = Cursors.WaitCursor
         If txt_inicio.Text.Length = 0 Or txt_cantidad.Text.Length = 0 Then
             MessageBox.Show("No se puede dejar en blanco el inicio o la cantidad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error)
             btn_crear_archivos.Enabled = False
@@ -31,7 +32,13 @@ Public Class Pasaportes_Manual
         End If
 
         Dim crotal As String = ""
-        Dim aux_crotal As Long = txt_inicio.Text.Substring(4, 10)
+        Dim aux_crotal As Long
+        If txt_inicio.Text.Length = 14 Then
+            aux_crotal = txt_inicio.Text.Substring(4, 10)
+        Else
+            aux_crotal = txt_inicio.Text
+        End If
+
         Dim aux_crotal2 As Long
         Dim cod_barras As String = ""
         Dim digito As String
@@ -68,13 +75,15 @@ Public Class Pasaportes_Manual
         btn_crear_archivos.Enabled = True
         btn_imprimir.Enabled = True
         chk_Todo.Checked = True
+        Me.Cursor = Cursors.Default
 
     End Sub
 
     Private Sub Crear_Parser()
 
         Try
-            Dim txt_Parser As String = My.Application.Info.DirectoryPath & "\Parser\STOCK_AND_" & txt_cantidad.Text & ".csv"
+            Dim fecha As String = Now.Day & "_" & Now.Month & "_" & Now.Year & "_" & Now.Minute & "_" & Now.Second
+            Dim txt_Parser As String = My.Application.Info.DirectoryPath & "\Parser\STOCK_" & fecha & "_" & txt_cantidad.Text & ".csv"
             Dim sw_Parser As New StreamWriter(txt_Parser)
 
             sw_Parser.WriteLine("Var01,Var02,Var03,Var04,Var05,Var06")
@@ -115,6 +124,7 @@ Public Class Pasaportes_Manual
     Private Sub Crear_Archivo_Pegatinas()
 
         Try
+            Dim fecha As String = Now.Day & "_" & Now.Month & "_" & Now.Year & "_" & Now.Minute & "_" & Now.Second
             Dim oXls As Object
             Dim oLibro As Object
             Dim oHoja As Object
@@ -158,7 +168,7 @@ Public Class Pasaportes_Manual
             objxlRange = oHoja.Range("A" & 1 & ":J" & lineas + 1)
             objxlRange.Value = arTable
 
-            oLibro.saveas(My.Application.Info.DirectoryPath & "\Pegatinas\STOCK_AND_" & txt_cantidad.Text & ".xls")
+            oLibro.saveas(My.Application.Info.DirectoryPath & "\Pegatinas\STOCK_ " & fecha & "_" & txt_cantidad.Text & ".xls")
 
             oLibro.Close()
             oLibro = Nothing
