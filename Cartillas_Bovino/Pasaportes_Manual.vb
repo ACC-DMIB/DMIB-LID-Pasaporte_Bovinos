@@ -21,6 +21,120 @@ Public Class Pasaportes_Manual
 
     End Sub
 
+    Private Sub txt_inicio_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_inicio.KeyDown
+        If e.KeyValue = Keys.Enter Then
+            If Comprobar_numeracion(txt_inicio.Text) Then
+                txt_cantidad.Enabled = True
+                btn_crear_numeracion.Enabled = True
+                lb_formato.Visible = False
+            Else
+                txt_cantidad.Enabled = False
+                btn_crear_numeracion.Enabled = False
+                lb_formato.Visible = True
+            End If
+        End If
+    End Sub
+
+    Private Function Comprobar_numeracion(ByVal num As String) As Boolean
+
+        Dim expresionReg As String = ""
+        Dim reg As New reg_ex()
+        Select Case num.Length
+            Case 10
+                longitud(True, False, False)
+                expresionReg = "^[0][1-9]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                expresionReg = "^[1][0-7]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                formato(False, False)
+                Return False
+            Case 12
+                longitud(False, True, False)
+                expresionReg = "^[0][0-9][0][1-9]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                expresionReg = "^[0][0-9][1][0-7]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                expresionReg = "^[2][2,7][1][0-7]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(False, True)
+                    Return True
+                End If
+                expresionReg = "^[2][2,7][0][1-9]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(False, True)
+                    Return True
+                End If
+                formato(False, False)
+                Return False
+            Case 14
+                longitud(False, False, True)
+                expresionReg = "^[E][S][0][0-9][0][1-9]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                expresionReg = "^[E][S][0][0-9][1][0-7]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(True, False)
+                    Return True
+                End If
+                expresionReg = "^[E][S][2][2,7][1][0-7]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(False, True)
+                    Return True
+                End If
+                expresionReg = "^[E][S][2][2,7][0][1-9]\d{8}"
+                If reg.MatchRegex(num, expresionReg) Then
+                    formato(False, True)
+                    Return True
+                End If
+                formato(False, False)
+                Return False
+            Case Else
+                longitud(False, False, False)
+                formato(False, False)
+                Return False
+        End Select
+
+    End Function
+
+    Private Sub longitud(long_10 As Boolean, long_12 As Boolean, long_14 As Boolean)
+
+        chk_10.Checked = long_10
+        chk_12.Checked = long_12
+        chk_14.Checked = long_14
+        If long_10 Or long_12 Or long_14 Then
+            gb_longitud.BackColor = Color.LightGreen
+        Else
+            gb_longitud.BackColor = Color.Red
+        End If
+
+    End Sub
+
+    Private Sub formato(condig As Boolean, sindig As Boolean)
+
+        chk_condig.Checked = condig
+        chk_sindig.Checked = sindig
+        If condig Or sindig Then
+            gb_tipo.BackColor = Color.LightGreen
+        Else
+            gb_tipo.BackColor = Color.Red
+        End If
+
+    End Sub
+
     Private Sub btn_crear_numeracion_Click(sender As Object, e As EventArgs) Handles btn_crear_numeracion.Click
 
         Me.Cursor = Cursors.WaitCursor
@@ -31,16 +145,77 @@ Public Class Pasaportes_Manual
             Exit Sub
         End If
 
-        Dim crotal As String = ""
-        Dim aux_crotal As Long
-        If txt_inicio.Text.Length = 14 Then
-            aux_crotal = txt_inicio.Text.Substring(4, 10)
+        'Dim crotal As String = ""
+        'Dim aux_crotal As Long
+        'If txt_inicio.Text.Length = 14 Then
+        '    aux_crotal = txt_inicio.Text.Substring(4, 10)
+        'Else
+        '    aux_crotal = txt_inicio.Text
+        'End If
+
+        'Dim aux_crotal2 As Long
+        'Dim cod_barras As String = ""
+        'Dim digito As String
+        'Dim aux_cant As Integer = txt_cantidad.Text
+        'For i = 0 To aux_cant - 1
+        '    aux_crotal2 = aux_crotal + i
+        '    If aux_crotal2.ToString.Length = 10 Then
+        '        digito = aux_crotales.DigitoDeControlParaBovino(aux_crotal2)
+        '        crotal = "ES0" & digito & aux_crotal2
+        '        cod_barras = "084" & aux_crotal2 & digito
+        '        Dim fila As DataRow = dt_crotales.NewRow
+        '        fila.Item("Crotal") = crotal
+        '        fila.Item("Cod_barras") = cod_barras
+        '        dt_crotales.Rows.Add(fila)
+        '    Else
+        '        digito = aux_crotales.DigitoDeControlParaBovino("0" & aux_crotal2)
+        '        crotal = "ES0" & digito & "0" & aux_crotal2
+        '        cod_barras = "084" & "0" & aux_crotal2 & digito
+        '        Dim fila As DataRow = dt_crotales.NewRow
+        '        fila.Item("Crotal") = crotal
+        '        fila.Item("Cod_barras") = cod_barras
+        '        dt_crotales.Rows.Add(fila)
+        '    End If
+        'Next
+
+        If chk_condig.Checked Then
+            Crear_Numeracion_DC()
         Else
-            aux_crotal = txt_inicio.Text
+            Crear_Numeracion_Sin_DC("ES")
         End If
 
+        dgv_crotales.DataSource = dt_crotales
+        dgv_crotales.Columns(0).Width = 70
+        dgv_crotales.Columns(1).Width = 120
+        dgv_crotales.Columns(2).Width = 120
+        For j = 0 To dgv_crotales.Rows.Count - 1
+            dgv_crotales.Rows(j).Cells(0).Value = True
+        Next
+        lbl_cartillas.Text = dgv_crotales.Rows.Count
+        btn_crear_archivos.Enabled = True
+        btn_imprimir.Enabled = True
+        chk_Todo.Checked = True
+        Me.Cursor = Cursors.Default
+
+    End Sub
+
+    Private Sub Crear_Numeracion_DC()
+
+        dt_crotales.Clear()
+        dgv_crotales.DataSource = Nothing
+        Dim crotal As String
+        Dim aux_crotal As Long
+        Select Case txt_inicio.Text.Length
+            Case 10
+                aux_crotal = txt_inicio.Text
+            Case 12
+                aux_crotal = txt_inicio.Text.Substring(2, 10)
+            Case 14
+                aux_crotal = txt_inicio.Text.Substring(4, 10)
+        End Select
+
         Dim aux_crotal2 As Long
-        Dim cod_barras As String = ""
+        Dim cod_barras As String
         Dim digito As String
         Dim aux_cant As Integer = txt_cantidad.Text
         For i = 0 To aux_cant - 1
@@ -64,18 +239,36 @@ Public Class Pasaportes_Manual
             End If
         Next
 
-        dgv_crotales.DataSource = dt_crotales
-        dgv_crotales.Columns(0).Width = 70
-        dgv_crotales.Columns(1).Width = 120
-        dgv_crotales.Columns(2).Width = 120
-        For j = 0 To dgv_crotales.Rows.Count - 1
-            dgv_crotales.Rows(j).Cells(0).Value = True
+    End Sub
+
+    Private Sub Crear_Numeracion_Sin_DC(ByVal tipo As String)
+
+        dt_crotales.Clear()
+        dgv_crotales.DataSource = Nothing
+        Dim crotal As String
+        Dim aux_crotal As Long
+        Select Case txt_inicio.Text.Length
+            Case 12
+                aux_crotal = txt_inicio.Text
+            Case 14
+                aux_crotal = txt_inicio.Text.Substring(2, 12)
+        End Select
+        Dim aux_crotal2 As Long
+        Dim cod_barras As String
+        Dim aux_cant As Integer = txt_cantidad.Text
+        For i = 0 To aux_cant - 1
+            aux_crotal2 = aux_crotal + i
+            crotal = "ES" & aux_crotal2
+            If tipo = "ES" Then
+                cod_barras = "ES" & aux_crotal2
+            Else
+                cod_barras = "0724" & aux_crotal2
+            End If
+            Dim fila As DataRow = dt_crotales.NewRow
+            fila.Item("Crotal") = crotal
+            fila.Item("Cod_barras") = cod_barras
+            dt_crotales.Rows.Add(fila)
         Next
-        lbl_cartillas.Text = dgv_crotales.Rows.Count
-        btn_crear_archivos.Enabled = True
-        btn_imprimir.Enabled = True
-        chk_Todo.Checked = True
-        Me.Cursor = Cursors.Default
 
     End Sub
 

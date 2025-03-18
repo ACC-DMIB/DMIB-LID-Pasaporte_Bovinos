@@ -136,6 +136,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Pedidos_OSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="reg_ex.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
