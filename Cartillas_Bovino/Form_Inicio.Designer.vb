@@ -39,36 +39,36 @@ Partial Class Form_Inicio
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PEDIDOSToolStripMenuItem, Me.MANUALESToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1121, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1121, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'PEDIDOSToolStripMenuItem
         '
         Me.PEDIDOSToolStripMenuItem.Name = "PEDIDOSToolStripMenuItem"
-        Me.PEDIDOSToolStripMenuItem.Size = New System.Drawing.Size(84, 24)
+        Me.PEDIDOSToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.PEDIDOSToolStripMenuItem.Text = "PEDIDOS"
         '
         'MANUALESToolStripMenuItem
         '
         Me.MANUALESToolStripMenuItem.Name = "MANUALESToolStripMenuItem"
-        Me.MANUALESToolStripMenuItem.Size = New System.Drawing.Size(100, 24)
+        Me.MANUALESToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.MANUALESToolStripMenuItem.Text = "MANUALES"
         '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lbl_impresora})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 659)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 704)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1121, 26)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1121, 22)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(76, 20)
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(60, 17)
         Me.ToolStripStatusLabel1.Text = "Impresora"
         '
         'lbl_impresora
@@ -77,16 +77,16 @@ Partial Class Form_Inicio
         Me.lbl_impresora.Image = CType(resources.GetObject("lbl_impresora.Image"), System.Drawing.Image)
         Me.lbl_impresora.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.lbl_impresora.Name = "lbl_impresora"
-        Me.lbl_impresora.Size = New System.Drawing.Size(29, 24)
+        Me.lbl_impresora.Size = New System.Drawing.Size(25, 20)
         Me.lbl_impresora.Text = "-"
         '
         'Form_Inicio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(1121, 685)
+        Me.ClientSize = New System.Drawing.Size(1121, 726)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Arial", 9.75!)

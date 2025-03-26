@@ -36,18 +36,27 @@ Partial Class Pasaportes_Manual
         Me.btn_imprimir = New System.Windows.Forms.Button()
         Me.btn_crear_archivos = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.gb_longitud = New System.Windows.Forms.GroupBox()
         Me.gb_tipo = New System.Windows.Forms.GroupBox()
-        Me.chk_10 = New System.Windows.Forms.CheckBox()
-        Me.chk_12 = New System.Windows.Forms.CheckBox()
-        Me.chk_14 = New System.Windows.Forms.CheckBox()
-        Me.chk_condig = New System.Windows.Forms.CheckBox()
         Me.chk_sindig = New System.Windows.Forms.CheckBox()
+        Me.chk_condig = New System.Windows.Forms.CheckBox()
+        Me.gb_longitud = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.chk_14 = New System.Windows.Forms.CheckBox()
+        Me.chk_12 = New System.Windows.Forms.CheckBox()
+        Me.chk_10 = New System.Windows.Forms.CheckBox()
         Me.lb_formato = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.gb_longitud.SuspendLayout()
         Me.gb_tipo.SuspendLayout()
+        Me.gb_longitud.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -69,7 +78,7 @@ Partial Class Pasaportes_Manual
         Me.btn_crear_numeracion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
         Me.btn_crear_numeracion.Image = CType(resources.GetObject("btn_crear_numeracion.Image"), System.Drawing.Image)
         Me.btn_crear_numeracion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_crear_numeracion.Location = New System.Drawing.Point(398, 337)
+        Me.btn_crear_numeracion.Location = New System.Drawing.Point(398, 416)
         Me.btn_crear_numeracion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_crear_numeracion.Name = "btn_crear_numeracion"
         Me.btn_crear_numeracion.Size = New System.Drawing.Size(253, 59)
@@ -115,7 +124,7 @@ Partial Class Pasaportes_Manual
         Me.dgv_crotales.Location = New System.Drawing.Point(16, 121)
         Me.dgv_crotales.Name = "dgv_crotales"
         Me.dgv_crotales.RowHeadersWidth = 51
-        Me.dgv_crotales.Size = New System.Drawing.Size(376, 401)
+        Me.dgv_crotales.Size = New System.Drawing.Size(376, 480)
         Me.dgv_crotales.TabIndex = 20
         '
         'Imprimir
@@ -128,7 +137,7 @@ Partial Class Pasaportes_Manual
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(220, 531)
+        Me.Label7.Location = New System.Drawing.Point(219, 608)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 16)
         Me.Label7.TabIndex = 23
@@ -137,7 +146,7 @@ Partial Class Pasaportes_Manual
         'chk_Todo
         '
         Me.chk_Todo.AutoSize = True
-        Me.chk_Todo.Location = New System.Drawing.Point(16, 530)
+        Me.chk_Todo.Location = New System.Drawing.Point(15, 607)
         Me.chk_Todo.Name = "chk_Todo"
         Me.chk_Todo.Size = New System.Drawing.Size(158, 20)
         Me.chk_Todo.TabIndex = 22
@@ -147,7 +156,7 @@ Partial Class Pasaportes_Manual
         'lbl_cartillas
         '
         Me.lbl_cartillas.AutoSize = True
-        Me.lbl_cartillas.Location = New System.Drawing.Point(374, 531)
+        Me.lbl_cartillas.Location = New System.Drawing.Point(373, 608)
         Me.lbl_cartillas.Name = "lbl_cartillas"
         Me.lbl_cartillas.Size = New System.Drawing.Size(15, 16)
         Me.lbl_cartillas.TabIndex = 24
@@ -163,7 +172,7 @@ Partial Class Pasaportes_Manual
         Me.btn_imprimir.ForeColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
         Me.btn_imprimir.Image = CType(resources.GetObject("btn_imprimir.Image"), System.Drawing.Image)
         Me.btn_imprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_imprimir.Location = New System.Drawing.Point(398, 463)
+        Me.btn_imprimir.Location = New System.Drawing.Point(398, 542)
         Me.btn_imprimir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_imprimir.Name = "btn_imprimir"
         Me.btn_imprimir.Size = New System.Drawing.Size(253, 59)
@@ -182,7 +191,7 @@ Partial Class Pasaportes_Manual
         Me.btn_crear_archivos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(77, Byte), Integer), CType(CType(41, Byte), Integer))
         Me.btn_crear_archivos.Image = CType(resources.GetObject("btn_crear_archivos.Image"), System.Drawing.Image)
         Me.btn_crear_archivos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_crear_archivos.Location = New System.Drawing.Point(398, 400)
+        Me.btn_crear_archivos.Location = New System.Drawing.Point(398, 479)
         Me.btn_crear_archivos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_crear_archivos.Name = "btn_crear_archivos"
         Me.btn_crear_archivos.Size = New System.Drawing.Size(253, 59)
@@ -197,85 +206,164 @@ Partial Class Pasaportes_Manual
         Me.GroupBox1.Controls.Add(Me.gb_longitud)
         Me.GroupBox1.Location = New System.Drawing.Point(398, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(253, 316)
+        Me.GroupBox1.Size = New System.Drawing.Size(268, 395)
         Me.GroupBox1.TabIndex = 25
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "FORMATOS VÁLIDOS"
-        '
-        'gb_longitud
-        '
-        Me.gb_longitud.Controls.Add(Me.chk_14)
-        Me.gb_longitud.Controls.Add(Me.chk_12)
-        Me.gb_longitud.Controls.Add(Me.chk_10)
-        Me.gb_longitud.Enabled = False
-        Me.gb_longitud.Location = New System.Drawing.Point(6, 21)
-        Me.gb_longitud.Name = "gb_longitud"
-        Me.gb_longitud.Size = New System.Drawing.Size(241, 162)
-        Me.gb_longitud.TabIndex = 0
-        Me.gb_longitud.TabStop = False
-        Me.gb_longitud.Text = "Longitud"
         '
         'gb_tipo
         '
         Me.gb_tipo.Controls.Add(Me.chk_sindig)
         Me.gb_tipo.Controls.Add(Me.chk_condig)
         Me.gb_tipo.Enabled = False
-        Me.gb_tipo.Location = New System.Drawing.Point(6, 189)
+        Me.gb_tipo.Location = New System.Drawing.Point(6, 308)
         Me.gb_tipo.Name = "gb_tipo"
-        Me.gb_tipo.Size = New System.Drawing.Size(241, 121)
+        Me.gb_tipo.Size = New System.Drawing.Size(255, 81)
         Me.gb_tipo.TabIndex = 1
         Me.gb_tipo.TabStop = False
         Me.gb_tipo.Text = "Tipo de numeración"
         '
-        'chk_10
+        'chk_sindig
         '
-        Me.chk_10.AutoSize = True
-        Me.chk_10.Location = New System.Drawing.Point(6, 33)
-        Me.chk_10.Name = "chk_10"
-        Me.chk_10.Size = New System.Drawing.Size(133, 20)
-        Me.chk_10.TabIndex = 0
-        Me.chk_10.Text = "10 CARACTERES"
-        Me.chk_10.UseVisualStyleBackColor = True
-        '
-        'chk_12
-        '
-        Me.chk_12.AutoSize = True
-        Me.chk_12.Location = New System.Drawing.Point(6, 73)
-        Me.chk_12.Name = "chk_12"
-        Me.chk_12.Size = New System.Drawing.Size(133, 20)
-        Me.chk_12.TabIndex = 1
-        Me.chk_12.Text = "12 CARACTERES"
-        Me.chk_12.UseVisualStyleBackColor = True
-        '
-        'chk_14
-        '
-        Me.chk_14.AutoSize = True
-        Me.chk_14.Location = New System.Drawing.Point(6, 115)
-        Me.chk_14.Name = "chk_14"
-        Me.chk_14.Size = New System.Drawing.Size(133, 20)
-        Me.chk_14.TabIndex = 2
-        Me.chk_14.Text = "14 CARACTERES"
-        Me.chk_14.UseVisualStyleBackColor = True
+        Me.chk_sindig.AutoSize = True
+        Me.chk_sindig.Location = New System.Drawing.Point(6, 47)
+        Me.chk_sindig.Name = "chk_sindig"
+        Me.chk_sindig.Size = New System.Drawing.Size(181, 20)
+        Me.chk_sindig.TabIndex = 2
+        Me.chk_sindig.Text = "SIN DÍGITO DE CONTROL"
+        Me.chk_sindig.UseVisualStyleBackColor = True
         '
         'chk_condig
         '
         Me.chk_condig.AutoSize = True
-        Me.chk_condig.Location = New System.Drawing.Point(6, 36)
+        Me.chk_condig.Location = New System.Drawing.Point(6, 21)
         Me.chk_condig.Name = "chk_condig"
         Me.chk_condig.Size = New System.Drawing.Size(188, 20)
         Me.chk_condig.TabIndex = 1
         Me.chk_condig.Text = "CON DÍGITO DE CONTROL"
         Me.chk_condig.UseVisualStyleBackColor = True
         '
-        'chk_sindig
+        'gb_longitud
         '
-        Me.chk_sindig.AutoSize = True
-        Me.chk_sindig.Location = New System.Drawing.Point(6, 75)
-        Me.chk_sindig.Name = "chk_sindig"
-        Me.chk_sindig.Size = New System.Drawing.Size(181, 20)
-        Me.chk_sindig.TabIndex = 2
-        Me.chk_sindig.Text = "SIN DÍGITO DE CONTROL"
-        Me.chk_sindig.UseVisualStyleBackColor = True
+        Me.gb_longitud.Controls.Add(Me.Label12)
+        Me.gb_longitud.Controls.Add(Me.Label11)
+        Me.gb_longitud.Controls.Add(Me.Label9)
+        Me.gb_longitud.Controls.Add(Me.Label10)
+        Me.gb_longitud.Controls.Add(Me.Label8)
+        Me.gb_longitud.Controls.Add(Me.Label6)
+        Me.gb_longitud.Controls.Add(Me.Label5)
+        Me.gb_longitud.Controls.Add(Me.Label4)
+        Me.gb_longitud.Controls.Add(Me.Label3)
+        Me.gb_longitud.Controls.Add(Me.chk_14)
+        Me.gb_longitud.Controls.Add(Me.chk_12)
+        Me.gb_longitud.Controls.Add(Me.chk_10)
+        Me.gb_longitud.Enabled = False
+        Me.gb_longitud.Location = New System.Drawing.Point(6, 21)
+        Me.gb_longitud.Name = "gb_longitud"
+        Me.gb_longitud.Size = New System.Drawing.Size(256, 281)
+        Me.gb_longitud.TabIndex = 0
+        Me.gb_longitud.TabStop = False
+        Me.gb_longitud.Text = "Longitud"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label9.Location = New System.Drawing.Point(11, 203)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(200, 16)
+        Me.Label9.TabIndex = 33
+        Me.Label9.Text = "ES + 27 + CA + 00000000(8 dig)"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label10.Location = New System.Drawing.Point(11, 185)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(200, 16)
+        Me.Label10.TabIndex = 32
+        Me.Label10.Text = "ES + 22 + CA + 00000000(8 dig)"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label8.Location = New System.Drawing.Point(11, 167)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(200, 16)
+        Me.Label8.TabIndex = 31
+        Me.Label8.Text = "ES +DC + CA + 00000000(8 dig)"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Location = New System.Drawing.Point(11, 123)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(167, 16)
+        Me.Label6.TabIndex = 30
+        Me.Label6.Text = "27 + CA + 00000000(8 dig)"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label5.Location = New System.Drawing.Point(11, 105)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(167, 16)
+        Me.Label5.TabIndex = 29
+        Me.Label5.Text = "22 + CA + 00000000(8 dig)"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label4.Location = New System.Drawing.Point(11, 87)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(171, 16)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "DC + CA + 00000000(8 dig)"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(11, 43)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(137, 16)
+        Me.Label3.TabIndex = 27
+        Me.Label3.Text = "CA + 00000000(8 dig)"
+        '
+        'chk_14
+        '
+        Me.chk_14.AutoSize = True
+        Me.chk_14.Location = New System.Drawing.Point(6, 145)
+        Me.chk_14.Name = "chk_14"
+        Me.chk_14.Size = New System.Drawing.Size(133, 20)
+        Me.chk_14.TabIndex = 2
+        Me.chk_14.Text = "14 CARACTERES"
+        Me.chk_14.UseVisualStyleBackColor = True
+        '
+        'chk_12
+        '
+        Me.chk_12.AutoSize = True
+        Me.chk_12.Location = New System.Drawing.Point(6, 65)
+        Me.chk_12.Name = "chk_12"
+        Me.chk_12.Size = New System.Drawing.Size(133, 20)
+        Me.chk_12.TabIndex = 1
+        Me.chk_12.Text = "12 CARACTERES"
+        Me.chk_12.UseVisualStyleBackColor = True
+        '
+        'chk_10
+        '
+        Me.chk_10.AutoSize = True
+        Me.chk_10.Location = New System.Drawing.Point(6, 21)
+        Me.chk_10.Name = "chk_10"
+        Me.chk_10.Size = New System.Drawing.Size(133, 20)
+        Me.chk_10.TabIndex = 0
+        Me.chk_10.Text = "10 CARACTERES"
+        Me.chk_10.UseVisualStyleBackColor = True
         '
         'lb_formato
         '
@@ -290,12 +378,32 @@ Partial Class Pasaportes_Manual
         Me.lb_formato.Text = "FORMATO INCORRECTO"
         Me.lb_formato.Visible = False
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label11.Location = New System.Drawing.Point(11, 229)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(177, 16)
+        Me.Label11.TabIndex = 34
+        Me.Label11.Text = "DC=Digito Control (00 a 09)"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label12.Location = New System.Drawing.Point(10, 248)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(192, 16)
+        Me.Label12.TabIndex = 35
+        Me.Label12.Text = "CA=Com. Autónoma (01 a 17)"
+        '
         'Pasaportes_Manual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(657, 568)
+        Me.ClientSize = New System.Drawing.Size(671, 639)
         Me.Controls.Add(Me.lb_formato)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btn_crear_archivos)
@@ -316,10 +424,10 @@ Partial Class Pasaportes_Manual
         Me.Text = "PASAPORTES MANUAL"
         CType(Me.dgv_crotales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.gb_longitud.ResumeLayout(False)
-        Me.gb_longitud.PerformLayout()
         Me.gb_tipo.ResumeLayout(False)
         Me.gb_tipo.PerformLayout()
+        Me.gb_longitud.ResumeLayout(False)
+        Me.gb_longitud.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -346,4 +454,13 @@ Partial Class Pasaportes_Manual
     Friend WithEvents chk_12 As CheckBox
     Friend WithEvents chk_10 As CheckBox
     Friend WithEvents lb_formato As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
 End Class
